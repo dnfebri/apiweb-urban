@@ -1,0 +1,37 @@
+// get All user
+GET http://localhost:5050/users
+Content-Type: application/json
+
+###
+//Create User
+POST http://localhost:5050/users
+Content-Type: application/json
+
+{
+  "name": "Admin",
+  "email": "admin@urbanathletes.co.id",
+  "password": "Urban1234",
+  "roleId": 1
+}
+
+###
+//Update User
+PUT http://localhost:5050/users/7bdf24ac-f9f3-44ce-8da0-d96d159ba521
+Content-Type: application/json
+
+{
+  "name": "Admin",
+  "email": "admin@urbanathletes.co.id",
+  "password": "Urban1234",
+  "confPassword": "Urban1234",
+  "roleId": 2
+}
+
+###
+// Delete User
+DELETE http://localhost:5050/users
+Content-Type: application/json
+
+{
+  "id": "fa1e7ded-7979-44bb-80fc-db3a88626c6c"
+}

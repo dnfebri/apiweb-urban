@@ -1,0 +1,21 @@
+//get All 
+GET http://localhost:5050/roles
+Content-Type: application/json
+
+###
+// Create Role
+POST http://localhost:5050/roles
+Content-Type: application/json
+
+{
+  "name": "Manager"
+}
+
+###
+// Update Role
+PUT http://localhost:5050/roles/2
+Content-Type: application/json
+
+{
+  "name": "Admin"
+}
