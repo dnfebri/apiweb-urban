@@ -9,6 +9,7 @@ const Users = db.define('users', {
     type: DataTypes.STRING,
     defaultValue: DataTypes.UUIDV4,
     allowNull: false,
+    unique: true,
     validate: {
       notEmpty: true
     }
@@ -24,6 +25,7 @@ const Users = db.define('users', {
   email: {
     type: DataTypes.STRING,
     allowNull: false,
+    unique: true,
     validate: {
       notEmpty: true,
       isEmail: true
@@ -42,6 +44,10 @@ const Users = db.define('users', {
   },
   roleId: {
     type: DataTypes.INTEGER,
+    allowNull: true
+  },
+  token: {
+    type: DataTypes.TEXT,
     allowNull: true
   }
 }, {

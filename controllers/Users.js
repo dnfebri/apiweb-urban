@@ -33,7 +33,7 @@ export const createUser = async(req, res) => {
       uuid:req.body.email
     }
   });
-  if(!user) return res.status(500).json({msg: "Email is Already Registered"});
+  if(user) return res.status(500).json({msg: "Email is Already Registered"});
   const {name, email, password, confPassword, roleId} = req.body;
   if(password !== confPassword) return res.status(400).json({msg: "Password dan confirm password tidak cocok"});
   const hashPassword = await argon2.hash(password);
