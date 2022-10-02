@@ -13,7 +13,6 @@ export const verifyToken = (req, res, next) => {
 }
 
 export const verifySession = (req, res, next) => {
-  console.log(req.cookie);
   console.log(req.session);
   const token = req.session.token;
   if(!token) return res.status(401).json({msg: "Mohon Login ke akun anda!"});

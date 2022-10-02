@@ -6,14 +6,14 @@ import {
   updateRole
   // deleteRole
 } from "../controllers/Roles.js";
-// import { verifyRole, adminOnly } from "../middleware/AuthRole.js"
+import { adminOnly, verifyUser } from "../middleware/AuthUser.js";
 
 const router = express.Router();
 
-router.get('/', getRoles);
+router.get('/', verifyUser, adminOnly, getRoles);
 // router.get('/:id', getRoleById);
-router.post('/', createRole);
-router.put('/:id', updateRole);
+router.post('/', verifyUser, adminOnly, createRole);
+router.put('/:id', verifyUser, adminOnly, updateRole);
 // router.delete('/', deleteRole);
 
 export default router;
