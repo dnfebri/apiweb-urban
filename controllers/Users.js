@@ -1,10 +1,15 @@
 import User from "../models/UserModel.js";
 import argon2 from "argon2";
+import Roles from "../models/RoleModel.js";
 
 export const getUsers = async(req, res) => {
   try {
     const response = await User.findAll({
-      attributes:['uuid', 'name', 'email', 'employeeId', 'roleId']
+      attributes:['uuid', 'name', 'email', 'employeeId', 'roleId'],
+      include:({
+        model: Roles,
+        attributes:['name']
+      })
     });
     res.status(200).json(response);
   } catch (error) {

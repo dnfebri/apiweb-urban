@@ -3,15 +3,16 @@ import cors from "cors";
 import session from "express-session";
 import dotenv from "dotenv";
 import SequelizeStore from "connect-session-sequelize";
+import cookieParser from "cookie-parser";
 
 import indexRoute from "./routes/index.js";
 
+// const sessionStore = SequelizeStore(session.Store);
+// const store = new sessionStore({
+//   db: db
+// })
 // // ## Generate database tables
-import db from "./config/Database.js";
-const sessionStore = SequelizeStore(session.Store);
-const store = new sessionStore({
-  db: db
-})
+// import db from "./config/Database.js";
 // try {
 //   await db.authenticate();
 //   console.log("databases Connected...");
@@ -25,16 +26,17 @@ dotenv.config();
 
 const app = express();
 
-app.use(session({
-  secret: process.env.SESSION_SECRET,
-  resave: false,
-  saveUninitialized: true,
-  store: store,
-  cookie: {
-    secure: "auto"
-  }
-}));
+// app.use(session({
+//   secret: process.env.SESSION_SECRET,
+//   resave: false,
+//   saveUninitialized: true,
+//   store: store,
+//   cookie: {
+//     secure: "auto"
+//   }
+// }));
 
+app.use(cookieParser())
 app.use(cors({
   credentials: true,
   // origin: 'http://localhost:3001'

@@ -13,12 +13,13 @@ export const verifyToken = (req, res, next) => {
 }
 
 export const verifySession = (req, res, next) => {
-  console.log(req.session);
-  const token = req.session.token;
+  const token = req.headers.token;
+  // const token = req.cookies.token;
   if(!token) return res.status(401).json({msg: "Mohon Login ke akun anda!"});
   jwt.verify(token, process.env.TOKEN_SECRET, (err, decoded) => {
     if(err) return res.status(403).json({msg: err.message});
     req.uuid = decoded.uuid;
+    req.token = token;
     next();
   })
 }
