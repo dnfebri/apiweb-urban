@@ -13,12 +13,15 @@ import indexRoute from "./routes/index.js";
 // })
 
 // // ## Generate database tables
-// import db from "./config/Database.js";
+import db from "./config/Database.js";
+const runDb = async() => {
+  await db.authenticate();
+  console.log("databases Connected...");
+  await db.sync();
+  // store.sync();
+}
 // try {
-//   await db.authenticate();
-//   console.log("databases Connected...");
-//   await db.sync();
-//   // store.sync();
+//   runDb();
 // } catch (error) {
 //   console.error(error);
 // }
