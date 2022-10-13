@@ -11,12 +11,13 @@ import indexRoute from "./routes/index.js";
 // const store = new sessionStore({
 //   db: db
 // })
+
 // // ## Generate database tables
 // import db from "./config/Database.js";
 // try {
 //   await db.authenticate();
 //   console.log("databases Connected...");
-//   // await db.sync();
+//   await db.sync();
 //   // store.sync();
 // } catch (error) {
 //   console.error(error);
