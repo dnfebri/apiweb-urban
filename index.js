@@ -43,6 +43,7 @@ app.use(cors({
   origin: [process.env.ACCESS_OROGIN2, process.env.ACCESS_OROGIN1]
 }));
 app.use(express.json());
+app.use(express.static('public'));
 app.use(indexRoute);
 
 app.listen(process.env.APP_PORT, () => {

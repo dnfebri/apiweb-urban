@@ -6,6 +6,10 @@ import { verifySession } from "../middleware/Verify.js";
 
 const router = express.Router();
 
+router.get('/', (reg, res) => {
+  res.render('index', { title: 'Urban' });
+});
+
 router.use('/auth', AuthRoute);
 router.use('/users', verifySession, UserRoute);
 router.use('/roles', verifySession, RoleRoute);
