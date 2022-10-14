@@ -1,9 +1,10 @@
 import express from "express";
 import cors from "cors";
-import session from "express-session";
+// import session from "express-session";
+// import SequelizeStore from "connect-session-sequelize";
 import dotenv from "dotenv";
-import SequelizeStore from "connect-session-sequelize";
 import cookieParser from "cookie-parser";
+import FileUpload from "express-fileupload";
 
 import indexRoute from "./routes/index.js";
 
@@ -46,6 +47,7 @@ app.use(cors({
   // origin: 'http://localhost:3001'
   origin: [process.env.ACCESS_OROGIN2, process.env.ACCESS_OROGIN1]
 }));
+app.use(FileUpload())
 app.use(express.json());
 app.use(express.static('public'));
 app.use(indexRoute);

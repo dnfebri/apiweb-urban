@@ -1,0 +1,14 @@
+//get All 
+GET http://localhost:5050/personal_training
+Content-Type: application/json
+
+###
+//Create PT
+POST http://localhost:5050/personal_training
+Content-Type: application/json
+
+{
+  "name": "PT1",
+  "description": "lorem",
+  "clubId": 2
+}
