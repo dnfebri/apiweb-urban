@@ -3,5 +3,5 @@
 .env.backup
 /.idea
 /.vscode
-!images/personal_training/
-images/personal_training/**
+!/images/personal_training/
+/images/personal_training/**
