@@ -1,5 +1,5 @@
 import User from "../models/UserModel.js";
-import argon2 from "argon2";
+import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import Roles from "../models/RoleModel.js";
 
@@ -16,7 +16,8 @@ export const Login = async(req, res) => {
       })
     });
     if(!user) return res.status(404).json({msg: "User tidak ditemukan!"});
-    const match = await argon2.verify(user.password, req.body.password);
+    // const match = await argon2.verify(user.password, req.body.password);
+    const match = await bcrypt.compareSync(req.body.password, user.password);
     if(!match) return res.status(400).json({msg: "Wrong Password!"});
     // req.session.userId = user.uuid; ////////////////
     const uuid = user.uuid;
@@ -52,7 +53,35 @@ export const Login = async(req, res) => {
   }
 }
 
-export const Me = async(req, res) => {;
+export const Register = async(req, res) => {
+  const passwd = req.headers.passwdregister;
+  console.log(req.headers.passwdregister);
+  if (passwd !== process.env.PASSWD_REGISTER) return res.status(400).json({msg: "Registration Rejected"})
+  const user = await User.findOne({
+    where: {
+      uuid:req.body.email
+    }
+  });
+  if(user) return res.status(500).json({msg: "Email is Already Registered"});
+  const {name, email, password, confPassword, roleId} = req.body;
+  if(password !== confPassword) return res.status(400).json({msg: "Password dan confirm password tidak cocok"});
+  // const hashPassword = await argon2.hash(password);
+  const salt = bcrypt.genSaltSync();
+  const hashPassword = await bcrypt.hashSync(password, salt);
+  try {
+    await User.create({
+      name: name,
+      email: email,
+      password: hashPassword,
+      roleId: roleId
+    });
+    res.status(201).json({msg: "Register Berhasil"});
+  } catch (error) {
+    res.status(500).json({msg: error.message});
+  }
+}
+
+export const Me = async(req, res) => {
   if (!req.uuid) {
     return res.status(401).json({msg: "User tidak terdaftar!"});
   }
@@ -65,11 +94,6 @@ export const Me = async(req, res) => {;
   });
   if(!user) return res.status(404).json({msg: "User tidak ditemkan!"});
   if(user.token != req.token) return res.status(401).json({msg: "Mohon login dahulu!"});
-  // const uuid = user.uuid;
-  // const name = user.name;
-  // const email = user.email;
-  // const roleId = user.roleId;
-  // res.status(200).json({uuid, name, email, roleId});
   return res.sendStatus(200);
 }
 

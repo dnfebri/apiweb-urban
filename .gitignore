@@ -5,3 +5,5 @@
 /.vscode
 !/images/personal_training/
 /images/personal_training/**
+**.rest
+*.rest

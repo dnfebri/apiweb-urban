@@ -1,5 +1,5 @@
 import User from "../models/UserModel.js";
-import argon2 from "argon2";
+import bcrypt from "bcrypt";
 import Roles from "../models/RoleModel.js";
 
 export const getUsers = async(req, res) => {
@@ -41,7 +41,9 @@ export const createUser = async(req, res) => {
   if(user) return res.status(500).json({msg: "Email is Already Registered"});
   const {name, email, password, confPassword, roleId} = req.body;
   if(password !== confPassword) return res.status(400).json({msg: "Password dan confirm password tidak cocok"});
-  const hashPassword = await argon2.hash(password);
+  // const hashPassword = await argon2.hash(password);
+  const salt = bcrypt.genSaltSync();
+  const hashPassword = await bcrypt.hashSync(password, salt);
   try {
     await User.create({
       name: name,
@@ -68,7 +70,9 @@ export const updateUser = async(req, res) => {
   if (password == "" || password === null){
     hashPassword = user.password
   } else {
-    hashPassword = await argon2.hash(password);
+    // hashPassword = await argon2.hash(password);
+    const salt = bcrypt.genSalt();
+    const hashPassword = await bcrypt.hashSync(password, salt);
   }
   if(password !== confPassword) return res.status(400).json({msg: "Password dan confirm password tidak cocok"});
   try {

@@ -1,6 +1,6 @@
 // get All user
 GET http://localhost:5050/users
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiZGE1YjljY2QtMDhhNC00MjAwLWE1ZjktYjI2OGYxYzhmYmE1IiwibmFtZSI6IlN1cGVyIEFkbWluIiwiZW1haWwiOiJzdWFkbWluQHVyYmFuYXRobGV0ZXMuY28uaWQiLCJyb2xlSWQiOjEsInJvbGUiOiJTdXBlciBBZG1pbiIsImlhdCI6MTY2NDc5Mzc2OCwiZXhwIjoxNjY0ODgwMTY4fQ.MAD3flxuVQ011VoBZtQRLxeDmHJPqmRVYCZjaVuva2k
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiMmUzYjI3MzgtYjlhNy00MzU3LTkxOGUtOGFhN2VmNmI0YTQ3IiwibmFtZSI6IlN1cGVyIEFkbWluIiwiZW1haWwiOiJzdWFkbWluQHVyYmFuYXRobGV0ZXMuY28uaWQiLCJyb2xlSWQiOjEsInJvbGUiOiJTdXBlciBhZG1pbiIsImlhdCI6MTY2NjA2NDM4MywiZXhwIjoxNjY2MTUwNzgzfQ.yBkQXyHqOqweK6eZBwqMt4OJsJS-lO3IJbcY3dYTUsg
 
 ###
 //get User By Id
@@ -13,11 +13,11 @@ POST http://localhost:5050/users
 Content-Type: application/json
 
 {
-  "name": "Manager",
-  "email": "manager@urbanathletes.co.id",
+  "name": "Super Admin",
+  "email": "suadmin@urbanathletes.co.id",
   "password": "Urban1234",
   "confPassword": "Urban1234",
-  "roleId": 3
+  "roleId": 1
 }
 
 ###
