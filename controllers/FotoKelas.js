@@ -54,7 +54,7 @@ export const createFotoKelas = (req, res) => {
       });
       res.status(201).json({msg: "Class Image Created Successfuly"});
     } catch (error) {
-      res.status(500).json(error.message);
+      res.status(500).json({msg: error.message});
       
     }
   });
