@@ -43,11 +43,11 @@ const app = express();
 
 app.use(cookieParser())
 app.use(cors(
-  {
-    // credentials: true,
-    origin: [process.env.ACCESS_OROGIN2, process.env.ACCESS_OROGIN1]
-    // origin: "*"
-  }
+  // {
+  //   // credentials: true,
+  //   origin: [process.env.ACCESS_OROGIN2, process.env.ACCESS_OROGIN1]
+  //   // origin: "*"
+  // }
 ));
 // app.use(function(req, res, next) {
 //   res.setHeader("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
