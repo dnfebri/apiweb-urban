@@ -42,25 +42,14 @@ const app = express();
 // }));
 
 app.use(cookieParser())
-app.use(cors(
-  // {
-  //   // credentials: true,
-  //   origin: [process.env.ACCESS_OROGIN2, process.env.ACCESS_OROGIN1]
-  //   // origin: "*"
-  // }
-));
+app.use(cors());
 // app.use(function(req, res, next) {
-//   res.setHeader("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
-//   res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, PATCH, DELETE, OPTIONS"); 
+//   res.setHeader("Access-Control-Allow-Origin", "*");
+//   res.setHeader("Access-Control-Allow-Methods", "GET, PUT, PATCH, POST, DELETE");
+//   res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 //   res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Authorization, Accept");
 //   next();
 // });
-app.use(function(req, res, next) {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "GET, PUT, PATCH, POST, DELETE");
-  res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
 app.use(FileUpload())
 app.use(express.json());
 app.use(express.static('public'));
