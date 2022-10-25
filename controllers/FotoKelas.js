@@ -90,7 +90,7 @@ export const updateFotoKelas = async(req, res) => {
       delImg = error.message;
     }
     
-    file.mv(`./public/images/foto_kelas/${fileName}`, async(err) => {
+    file.mv(`./public/images/foto_kelas/${fileName}`, (err) => {
       if(err) return res.status(500).json({msg: err.message});
     });
   }

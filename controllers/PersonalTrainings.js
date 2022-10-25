@@ -87,7 +87,7 @@ export const updatePersonalTraining = async(req, res) => {
     try {
       fs.unlinkSync(filePath);
       
-      file.mv(`./public/images/personal_training/${fileName}`, async(err) => {
+      file.mv(`./public/images/personal_training/${fileName}`, (err) => {
         if(err) return res.status(500).json({msg: err.message});
       });
     } catch (error) {
