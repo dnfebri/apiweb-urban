@@ -42,11 +42,13 @@ const app = express();
 // }));
 
 app.use(cookieParser())
-app.use(cors({
-  credentials: true,
-  origin: [process.env.ACCESS_OROGIN2, process.env.ACCESS_OROGIN1]
-  // origin: "*"
-}));
+app.use(cors(
+  // {
+  //   credentials: true,
+  //   origin: [process.env.ACCESS_OROGIN2, process.env.ACCESS_OROGIN1]
+  //   // origin: "*"
+  // }
+));
 app.use(FileUpload())
 app.use(express.json());
 app.use(express.static('public'));
