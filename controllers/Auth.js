@@ -41,7 +41,7 @@ export const Login = async(req, res) => {
     })
     res.cookie('token', token, {
       httpOnly: true,
-      SameSite: "none",
+      // SameSite: "Lax",
       secure: false, // <<== jika menggunakan HTTPS
       maxAge: 24 * 60 * 60 * 1000
     })
