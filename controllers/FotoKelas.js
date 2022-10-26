@@ -94,7 +94,7 @@ export const updateFotoKelas = async(req, res) => {
       if(err) return res.status(500).json({msg: err.message});
     });
   }
-  const url = `/images/foto_kelas/${fileName}`;
+  const url = `images/foto_kelas/${fileName}`;
   
   try {
     await FotoKelas.update({
