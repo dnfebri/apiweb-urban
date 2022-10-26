@@ -43,10 +43,10 @@ const app = express();
 
 app.use(cookieParser())
 app.use(cors(
-  {
-    credentials: false,
-    origin: "*"
-  }
+  // {
+  //   credentials: false,
+  //   origin: "*"
+  // }
 ));
 // app.use(function(req, res, next) {
 //   res.setHeader("Access-Control-Allow-Origin", "*");
