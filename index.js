@@ -46,7 +46,8 @@ app.use(cors(
   {
     // credentials: false,
     // origin: "*"
-    origin: [process.env.ACCESS_OROGIN2, process.env.ACCESS_OROGIN1]
+    origin: "*",
+    preflightContinue: false
   }
 ));
 // app.use(function(req, res, next) {
