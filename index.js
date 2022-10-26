@@ -48,13 +48,14 @@ app.use(cors(
   //   origin: "*"
   // }
 ));
-// app.use(function(req, res, next) {
-//   res.setHeader("Access-Control-Allow-Origin", "*");
-//   res.setHeader("Access-Control-Allow-Methods", "GET, PUT, PATCH, POST, DELETE");
-//   res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//   res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Authorization, Accept");
-//   next();
-// });
+app.use(function(req, res, next) {
+  // res.setHeader("Access-Control-Allow-Origin", "*");
+  // res.setHeader("Access-Control-Allow-Methods", "GET, PUT, PATCH, POST, DELETE");
+  // res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  // res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Authorization, Accept");
+  res.header('Content-Type', 'application/json');
+  next();
+});
 app.use(FileUpload())
 app.use(express.json());
 app.use(express.static('public'));
