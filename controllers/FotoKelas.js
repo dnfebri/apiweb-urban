@@ -36,7 +36,7 @@ export const createFotoKelas = (req, res) => {
   const fileSize = file.data.length;
   const ext = path.extname(file.name);
   const fileName = name.split(' ').join('_') + '-' + file.md5.toString(36).substring(0, 3) + ext;
-  const url = `${req.protocol}://${req.get("host")}/images/foto_kelas/${fileName}`;
+  const url = `/images/foto_kelas/${fileName}`;
   const allowedType = ['.png', '.jpg', '.jpeg'];
 
   if(!allowedType.includes(ext.toLowerCase())) return res.status(422).json({msg: "Invalid Images"});
@@ -94,7 +94,7 @@ export const updateFotoKelas = async(req, res) => {
       if(err) return res.status(500).json({msg: err.message});
     });
   }
-  const url = `${req.protocol}://${req.get("host")}/images/foto_kelas/${fileName}`;
+  const url = `/images/foto_kelas/${fileName}`;
   
   try {
     await FotoKelas.update({
