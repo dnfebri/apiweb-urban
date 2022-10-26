@@ -44,7 +44,7 @@ const app = express();
 app.use(cookieParser())
 app.use(cors(
   {
-    credentials: true,
+    credentials: false,
     // origin: "*"
     origin: "*",
     preflightContinue: false
