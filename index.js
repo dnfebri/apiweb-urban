@@ -47,7 +47,7 @@ app.use(cors(
     credentials: true,
     // origin: "*"
     origin: "*",
-    preflightContinue: true
+    preflightContinue: false
   }
 ));
 // app.use(function(req, res, next) {
