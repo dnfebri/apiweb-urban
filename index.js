@@ -43,12 +43,12 @@ const app = express();
 
 app.use(cookieParser())
 app.use(cors(
-  // {
-  //   credentials: true,
-  //   // origin: "*"
-  //   origin: "*",
-  //   preflightContinue: true
-  // }
+  {
+    credentials: true,
+    // origin: "*"
+    origin: "*",
+    preflightContinue: true
+  }
 ));
 // app.use(function(req, res, next) {
 //   // res.setHeader("Access-Control-Allow-Origin", "*");
