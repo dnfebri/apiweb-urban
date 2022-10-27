@@ -46,7 +46,7 @@ app.use(cors(
   {
     // credentials: true,
     // origin: "*"
-    origin: "*",
+    origin: [process.env.ACCESS_OROGIN2, process.env.ACCESS_OROGIN1],
     preflightContinue: true
   }
 ));
