@@ -45,8 +45,8 @@ app.use(cookieParser())
 app.use(cors(
   {
     // credentials: false,
-    // origin: "*"
-    origin: [process.env.ACCESS_OROGIN2, process.env.ACCESS_OROGIN1],
+    origin: "*",
+    // origin: [process.env.ACCESS_OROGIN2, process.env.ACCESS_OROGIN1],
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS"
     // preflightContinue: true
   }
