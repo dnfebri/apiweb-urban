@@ -5,7 +5,10 @@ import fs from "fs";
 export const getFotoKelases = async(req, res) => {
   try {
     const response = await FotoKelas.findAll({
-      attributes:['id', 'name', 'clubId', 'image', 'url', 'description']
+      attributes:['id', 'name', 'clubId', 'image', 'url', 'description'],
+      order: [
+        ['id', 'DESC']
+      ],
     });
     res.status(200).json(response);
   } catch (error) {

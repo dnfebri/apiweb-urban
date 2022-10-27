@@ -5,7 +5,10 @@ import fs from "fs";
 export const getPersonalTrainings = async(req, res) => {
   try {
     const response =  await PersonalTraining.findAll({
-      attributes:['id', 'name', 'description', 'clubId', 'image', 'url']
+      attributes:['id', 'name', 'description', 'clubId', 'image', 'url'],
+      order: [
+        ['id', 'DESC']
+      ],
     });
     res.status(200).json(response);
   } catch (error) {
