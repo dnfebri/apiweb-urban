@@ -46,7 +46,7 @@ app.use(cors(
   {
     credentials: true,
     origin: "*",
-    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
+    // allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
     // origin: [process.env.ACCESS_OROGIN2, process.env.ACCESS_OROGIN1],
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS"
     // preflightContinue: true
