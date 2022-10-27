@@ -44,7 +44,7 @@ const app = express();
 app.use(cookieParser())
 app.use(cors(
   {
-    // credentials: false,
+    credentials: true,
     origin: "*",
     // origin: [process.env.ACCESS_OROGIN2, process.env.ACCESS_OROGIN1],
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS"
