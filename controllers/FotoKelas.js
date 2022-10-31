@@ -128,10 +128,12 @@ export const deleteFotoKelas = async(req, res) => {
   });
   if (!classes) return res.status(404).json({msg: "Class Image Not Found"});
   try {
-    // Delete File in S3
-    const prefix = "fotoKelas/";
-    let keyImage = prefix + classes.image;
-    await deleteImage(keyImage);
+    const filePath = `./public/images/foto_kelas/${classes.image}`;
+    fs.unlinkSync(filePath);
+    // // Delete File in S3
+    // const prefix = "fotoKelas/";
+    // let keyImage = prefix + classes.image;
+    // await deleteImage(keyImage);
     await classes.destroy({
       where: {
         id: classes.id

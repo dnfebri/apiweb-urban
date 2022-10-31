@@ -126,10 +126,12 @@ export const deletePersonalTraining = async(req, res) => {
   });
   if (!pt) return res.status(404).json({msg: "Personal Trainer Not Found"});
   try {
-    // Delete File in S3
-    const prefix = "personalTraining/";
-    let keyImage = prefix + pt.image;
-    await deleteImage(keyImage);
+    const filePath = `./public/images/personal_training/${pt.image}`;
+    fs.unlinkSync(filePath);
+    // // Delete File in S3
+    // const prefix = "personalTraining/";
+    // let keyImage = prefix + pt.image;
+    // await deleteImage(keyImage);
     await pt.destroy({
       where: {
         id: pt.id

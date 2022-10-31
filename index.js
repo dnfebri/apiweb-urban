@@ -42,7 +42,10 @@ const app = express();
 // }));
 
 app.use(cookieParser())
-app.use(cors());
+app.use(cors({
+  credentials: true,
+  origin: "*"
+}));
 app.use(FileUpload())
 app.use(express.json());
 app.use(express.static('public'));
