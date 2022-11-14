@@ -7,6 +7,8 @@ import PersonalTrainingRoute from "./PersonalTrainingRoute.js";
 import FotoKelasRoute from "./FotoKelasRoute.js";
 import SuccessStoryRoute from "./SuccessStoryRoute.js";
 
+import InvestmentRoute from "./InvestmentRoute.js";
+
 const router = express.Router();
 
 router.get('/', (reg, res) => {
@@ -19,5 +21,7 @@ router.use('/roles', verifySession, RoleRoute);
 router.use('/personal_training', PersonalTrainingRoute);
 router.use('/foto_kelas', FotoKelasRoute);
 router.use('/success_story', SuccessStoryRoute);
+
+router.use('/investment', InvestmentRoute);
 
 export default router;

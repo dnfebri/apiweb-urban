@@ -55,4 +55,13 @@ export const getImages = async(folder) => {
   });
 }
 
+export const responseJson = (status, message, data = []) => {
+  let resp = {
+      success: status,
+      message: message,
+      data: data
+  }
+  return resp;
+}
+
 
