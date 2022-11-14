@@ -1,4 +1,5 @@
-import Investments from "../models/InvestmentModel.js"
+import Investments from "../models/InvestmentModel.js";
+import { Op } from "sequelize";
 
 export const getInvestments = async(req, res) => {
   const response =  await Investments.findAll();
@@ -22,6 +23,16 @@ export const createInvestment = async(req, res) => {
     job,
     industry
   } = req.body;
+
+  const invest = await Investments.findOne({
+    where: {
+      [Op.or]: [
+        {email: email},
+        {phone: phone}
+      ]
+    }
+  });
+  if (invest) return res.status(500).json({msg: "Email Or Phone is already exists"});
 
   try {
     await Investments.create({
