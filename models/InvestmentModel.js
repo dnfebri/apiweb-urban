@@ -8,11 +8,11 @@ const Roles = db.define('investments', {
     type: DataTypes.INTEGER,
     allowNull: false
   },
-  first_name: {
-    type: DataTypes.STRING,
-    allowNull: true,
+  nominal: {
+    type: DataTypes.INTEGER,
+    allowNull: true
   },
-  last_name: {
+  name: {
     type: DataTypes.STRING,
     allowNull: true,
   },

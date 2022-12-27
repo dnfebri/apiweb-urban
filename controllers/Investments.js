@@ -13,8 +13,8 @@ export const getInvestmentById = async(req, res) => {
 export const createInvestment = async(req, res) => {
   const {
     kode_inves,
-    first_name,
-    last_name,
+    nominal,
+    name,
     email,
     phone,
     country,
@@ -37,8 +37,8 @@ export const createInvestment = async(req, res) => {
   try {
     await Investments.create({
       kode_inves,
-      first_name,
-      last_name,
+      nominal,
+      name,
       email,
       phone,
       country,
